@@ -124,7 +124,7 @@ for( envios  in  c( 10000, 10500, 11000, 11500, 12000, 12500, 13000, 13500 ) )
   tb_entrega[ 1:envios, Predicted := 1L ]
 
   fwrite( tb_entrega[ , list(numero_de_cliente, Predicted)], 
-          file= paste0( "KA_652_", envios, ".csv" ),
+          file= paste0( "KA_652_01", envios, ".csv" ),
           sep= "," )
 }
 

@@ -22,8 +22,8 @@ setwd("~/buckets/b1/")   #Establezco el Working Directory
 
 
 kprefijo       <- "KA603"
-ksemilla_azar  <- 102191  #Aqui poner la propia semilla
-kdataset       <- "./datasets/paquete_premium_ext_001.csv.gz"
+ksemilla_azar  <- 958381  #Aqui poner la propia semilla
+kdataset       <- "./datasets/K601_01.csv.gz"
 
 #donde entrenar
 kfinal_mes_desde    <- 201912        #mes desde donde entreno

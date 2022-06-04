@@ -27,17 +27,20 @@ kBO_iter  <- 100   #cantidad de iteraciones de la Optimizacion Bayesiana
 
 #Aqui se cargan los hiperparametros
 hs <- makeParamSet( 
-         makeNumericParam("learning_rate",    lower=  0.01 , upper=     0.3),
-         makeNumericParam("feature_fraction", lower=  0.2  , upper=     1.0),
-         makeIntegerParam("min_data_in_leaf", lower=  1    , upper= 20000),
-         makeIntegerParam("num_leaves",       lower= 16L   , upper=  2048),
-         makeNumericParam("prob_corte",       lower= 1/120 , upper=  1/20)  #esto sera visto en clase en gran detalle
-        )
+  makeNumericParam("learning_rate",    lower=  0.01 , upper=    0.14),
+  makeNumericParam("feature_fraction", lower=  0.2  , upper=    1.0),
+  makeIntegerParam("min_data_in_leaf", lower=  3300    , upper= 7000),
+  makeIntegerParam("num_leaves",       lower= 50L   , upper= 900L),
+  makeNumericParam("lambda_l1",        lower=  0    , upper=   100),
+  makeNumericParam("lambda_l2",        lower=  0    , upper=   100),
+  makeNumericParam("prob_corte",       lower= 1/120 , upper=  1/20)  #esto sera visto en clase en gran detalle
+)
+
 
 
 kprefijo       <- "HT601"
-ksemilla_azar  <- 102191  #Aqui poner la propia semilla
-kdataset       <- "./datasets/paquete_premium_ext_001.csv.gz"
+ksemilla_azar  <- 958381  #Aqui poner la propia semilla
+kdataset       <- "./datasets/K601_01.csv.gz"
 
 #donde entrenar
 ktrain_mes_desde    <- 201912        #mes desde donde entreno
@@ -108,7 +111,7 @@ EstimarGanancia_lightgbm  <- function( x )
                           boost_from_average= TRUE,
                           feature_pre_filter= FALSE,
                           verbosity= -100,
-                          seed= 999983,
+                          seed= 958381,
                           max_depth=  -1,         # -1 significa no limitar,  por ahora lo dejo fijo
                           min_gain_to_split= 0.0, #por ahora, lo dejo fijo
                           lambda_l1= 0.0,         #por ahora, lo dejo fijo
@@ -123,7 +126,7 @@ EstimarGanancia_lightgbm  <- function( x )
 
   param_completo  <- c( param_basicos, param_variable, x )
 
-  set.seed( 999983 )
+  set.seed( 958381 )
   modelocv  <- lgb.cv( data= dtrain,
                        eval= fganancia_logistic_lightgbm,
                        stratified= TRUE, #sobre el cross validation

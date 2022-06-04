@@ -138,10 +138,10 @@ EstimarGanancia_lightgbm  <- function( x )
 #Aqui empieza el programa
 
 #Aqui se debe poner la carpeta de la computadora local
-setwd("~/buckets/b1/")   #Establezco el Working Directory
+setwd("C:\\ITBA\\Mineria\\")   #Establezco el Working Directory
 
 #cargo el dataset donde voy a entrenar el modelo
-dataset  <- fread("./datasets/paquete_premium_202011.csv.gz")
+dataset  <- fread("./datasets/paquete_premium_202011.csv")
 
 #creo la carpeta donde va el experimento
 # HT  representa  Hiperparameter Tuning
@@ -210,7 +210,7 @@ if( !file.exists( kbayesiana ) ) {
 
 
 quit( save="no" )
-
+  
 
 # pero nosotros  NO nos vamos a quedar tranquilos sin cuestionar los hiperparametros originales
 # min_data_in_leaf  y  num_leaves   estan relacionados entre ellos
