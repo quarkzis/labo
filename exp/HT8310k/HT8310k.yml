@@ -15,7 +15,7 @@ experiment:
 
 param:
   algoritmo:  "lightgbm"
-  semilla: 958381
+  semilla: 102191
   crossvalidation: FALSE
   crossvalidation_folds: 5
   validate: FALSE
@@ -45,7 +45,7 @@ param:
     max_depth:  -1                   # [ 6  ,  12 ]  #pero es preferible dejarlo en -1 como esta
     max_bin:     31                  #dejarlo fijo en 31, los scripts no estan preparados para que esto cambie
     
-    seed: 958381                     #podrian poner su propia semilla, asi sienten que la corrida les pertenece
+    seed: 999983                     #podrian poner su propia semilla, asi sienten que la corrida les pertenece
     extra_trees: FALSE
 
     drop_rate: 0.1                   # [ 0.03,   1.0]  solo cuando  boosting: dart
@@ -95,4 +95,3 @@ environment:
   repo_dir: "~/labo/"
   exp_dir:  "~/buckets/b1/exp/"
   catalog:  "catalogo.txt"
-
