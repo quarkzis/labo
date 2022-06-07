@@ -261,7 +261,8 @@ AgregarVariables  <- function( dataset )
   dataset[  , cpayroll_trx_sobre_ctrx_quarter  := cpayroll_trx / ctrx_quarter ]
   dataset[  , mpasivos_margen_sobre_ctrx_quarter  := mpasivos_margen / ctrx_quarter ]
   dataset[  , mcaja_ahorro_sobre_ctrx_quarter  := mcaja_ahorro / ctrx_quarter ]
-  
+  dataset[  , limite_visa_square  := Visa_mlimitecompra^2 ]
+  dataset[  , limite_master_square  := Master_mlimitecompra^2 ]  
 
   #valvula de seguridad para evitar valores infinitos
   #paso los infinitos a NULOS
