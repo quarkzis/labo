@@ -40,7 +40,7 @@ campos_buenos  <- c( "ctrx_quarter", "cpayroll_trx", "mcaja_ahorro", "mtarjeta_v
                      "mtransferencias_recibidas", "cliente_antiguedad", "Visa_mconsumospesos", "Master_mfinanciacion_limite",
                      "mcaja_ahorro_dolares", "cproductos", "mcomisiones_otras", "thomebanking", "mcuenta_debitos_automaticos",
                      "mcomisiones", "Visa_cconsumos", "ccomisiones_otras", "Master_status", "mtransferencias_emitidas",
-                     "mpagomiscuentas")
+                     "mpagomiscuentas", "Master_mlimitecompra", "Visa_mlimitecompra")
 
 
 
@@ -59,8 +59,8 @@ hclust.rf  <- hclust( as.dist ( 1.0 - modelo$proximity),  #distancia = 1.0 - pro
 
 #primero, creo la carpeta donde van los resultados
 dir.create( "./exp/", showWarnings= FALSE )
-dir.create( "./exp/ST7610", showWarnings= FALSE )
-setwd( "~/buckets/b1/exp/ST7610" )
+dir.create( "./exp/ST7610a", showWarnings= FALSE )
+setwd( "~/buckets/b1/exp/ST7610a" )
 
 
 #imprimo un pdf con la forma del cluster jerarquico
@@ -73,7 +73,7 @@ dev.off()
 h <- 20
 distintos <- 0
 
-while(  h>0  &  !( distintos >=6 & distintos <=7 ) )
+while(  h>0  &  !( distintos >=4 & distintos <=6 ) )
 {
   h <- h - 1 
   rf.cluster  <- cutree( hclust.rf, h)
