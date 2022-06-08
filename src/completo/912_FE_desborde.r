@@ -250,17 +250,14 @@ AgregarVariables  <- function( dataset )
 
   #Aqui debe usted agregar sus propias nuevas variables
   #variable que toma la relación entre el consumo en tarjeta y el límite de compra
-  dataset[  , consumo_sobre_limite_visa  := mtarjeta_visa_consumo / Visa_mlimitecompra ]
-  dataset[  , consumo_sobre_limite_visa  := mtarjeta_master_consumo / Master_mlimitecompra ]
+  dataset[  , consumo_sobre_limite_visa  := mtarjeta_visa_consumo / (Visa_mlimitecompra + 1) ]
+  dataset[  , consumo_sobre_limite_visa  := mtarjeta_master_consumo / (Master_mlimitecompra + 1) ]
   dataset[  , saldo_sobre_consumos  := mcuentas_saldo / mvr_mconsumospesos ]
   #suma de seguros
   dataset[ , seguros_merge := cseguro_vida + cseguro_auto + cseguro_vivienda + cseguro_accidentes_personales + ccaja_seguridad ]
   #suma de débitos automáticos
   dataset[ , debitos_merge := ccuenta_debitos_automaticos + ctarjeta_visa_debitos_automaticos + ctarjeta_master_debitos_automaticos ]
   #relación entre las dos vairables mas importante
-  dataset[  , cpayroll_trx_sobre_ctrx_quarter  := cpayroll_trx / ctrx_quarter ]
-  dataset[  , mpasivos_margen_sobre_ctrx_quarter  := mpasivos_margen / ctrx_quarter ]
-  dataset[  , mcaja_ahorro_sobre_ctrx_quarter  := mcaja_ahorro / ctrx_quarter ]
   dataset[  , limite_visa_square  := Visa_mlimitecompra^2 ]
   dataset[  , limite_master_square  := Master_mlimitecompra^2 ]  
 
